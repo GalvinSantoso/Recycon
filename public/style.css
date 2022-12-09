@@ -1,0 +1,7 @@
+.bg-gradients {
+    background-image: linear-gradient(to right, #a69bf9, #dca1ff);
+}
+
+.homepage {
+    background-image: url("img/backgroundHome.jpg");
+}
