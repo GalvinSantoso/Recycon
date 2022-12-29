@@ -5,3 +5,37 @@
 .homepage {
     background-image: url("img/backgroundHome.jpg");
 }
+
+.bg-fdf8f8 {
+    background-color: #fdf8f8;
+}
+
+.btn-gradients {
+    background-image: linear-gradient(to top, #a69bf9, #dca1ff);
+    padding: 0.5rem 2rem;
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.btn-gradients:hover {
+    opacity: 0.8;
+}
+
+.text-gradients {
+    background: linear-gradient(#a69bf9, #dca1ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+table,
+th,
+td {
+    border: 2px solid #dca1ff;
+    padding: 0.2rem;
+    text-align: center;
+}
