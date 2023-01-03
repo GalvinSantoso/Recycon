@@ -20,8 +20,8 @@
                         <a class="nav-link text-light fw-semibold" href="#">Transaction History</a>
                     </li>
                 </ul>
-                <form class="d-flex flex-fill mx-md-2" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search product.." aria-label="Search">
+                <form class="d-flex flex-fill mx-md-2" role="search" action="/showProduct">
+                    <input class="form-control me-2" type="search" placeholder="Search product.." aria-label="Search" name="search" value="{{ request('search') }}">
                     <button class="btn btn-outline-light" type="submit">Search</button>
                 </form>
                 <ul class="navbar-nav mx-md-2 mb-2 mb-lg-0">
@@ -31,8 +31,8 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">Username</a></li>
-                        <li><a class="dropdown-item" href="#">Edit Profile</a></li>
-                        <li><a class="dropdown-item" href="#">Change Password</a></li>
+                        <li><a class="dropdown-item" href="/editProfile">Edit Profile</a></li>
+                        <li><a class="dropdown-item" href="/changePassword">Change Password</a></li>
                     </ul>
                     </li>
                     <li>
@@ -65,7 +65,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="/viewItem">View Item</a></li>
-                        <li><a class="dropdown-item" href="#">Add Item</a></li>
+                        <li><a class="dropdown-item" href="/addItem">Add Item</a></li>
                     </ul>
                 </li>
                 </ul>
@@ -80,8 +80,8 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Username</a></li>
-                            <li><a class="dropdown-item" href="#">Edit Profile</a></li>
-                            <li><a class="dropdown-item" href="#">Change Password</a></li>
+                            <li><a class="dropdown-item" href="/editProfile">Edit Profile</a></li>
+                            <li><a class="dropdown-item" href="/changePassword">Change Password</a></li>
                         </ul>
                     </li>
                     <li>

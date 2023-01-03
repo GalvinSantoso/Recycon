@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
@@ -19,6 +20,11 @@ class AuthController extends Controller
             'email' => 'required|email:dns',
             'password' => 'required'
              ]);
+
+        if($request->remember){
+            Cookie::queue('emailCookie', $request->email, 60);
+            Cookie::queue('passwordCookie', $request->password, 60);
+        }
 
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();

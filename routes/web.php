@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\UpdatePasswordController;
 use App\Models\Item;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -39,4 +41,16 @@ Route::group(['middleware' => ['admin']], function () {
     Route::get('/updateItem/{item}', [ItemController::class, 'updateItem']);
     Route::delete('/deleteItem/{item}', [ItemController::class, 'deleteItem']);
     Route::put('/updateItem/{id}', [ItemController::class, 'update']);
+    Route::get('/addItem', [ItemController::class, 'addItem']);
+    Route::post('/addItem', [ItemController::class, 'store']);
 });
+
+Route::get('/editProfile', function(){
+    return view('editProfile');
+});
+
+Route::get('/changePassword', [UpdatePasswordController::class, 'edit'])->name('changePassword');
+Route::put('/changePassword', [UpdatePasswordController::class, 'update']);
+
+Route::get('/cartList', [CartController::class, 'index']);
+Route::post('/cartList', [CartController::class, 'addToCart']);

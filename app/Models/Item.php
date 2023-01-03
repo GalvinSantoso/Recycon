@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Item extends Model
 {
     use HasFactory;
+    protected $guarded = [];
+
+    public function scopeSearch($query){
+        if(request('search')){
+            return $query->where('name', 'like', '%' . request('search') . '%');
+
+        }
+    }
+
+    public function cart(){
+        return $this->belongsToMany(Cart::class);
+    }
 }

@@ -26,11 +26,18 @@
                     <div class="p-2 mb-3">
                         @auth
                             @if(Auth::user()->user_role_id == 1)
-                            <form action="#" method="POST" class="d-flex align-items-center">
+                            <form action="/cartList" method="POST" class="d-flex align-items-center">
                                 @csrf
+                                <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id }}" >
+                                <input type="hidden" id="item_id" name="item_id" value="{{ $item->id }}" >
                                 <div class="mx-3">
-                                    <label for="qtyProduct">Qty:</label>
-                                    <input type="number" name="qtyProduct" id="qtyProduct" value="1">
+                                    <label for="quantity">Qty:</label>
+                                    <input type="number" name="quantity" id="quantity" value="1">
+                                    @error('quantity')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                                 </div>
                                 <button type="submit" class="btn-gradients mx-3">Add To Cart</button>
                             </form>

@@ -6,7 +6,7 @@
     <div class="row bg-fdf8f8 justify-content-center p-4">
         <div class="col-lg-8 shadow rounded bg-white p-3">
             <h1 class="display-5 text-gradients fw-semibold">Update Item</h1>
-            <form  action="/updateItem/{{ $item->id }}" method="POST">
+            <form  action="/updateItem/{{ $item->id }}" method="POST" enctype="multipart/form-data">
                 @method('put')
                 @csrf
                 <div class="row mb-3">
@@ -17,6 +17,11 @@
                     <div class="col">
                         <label for="itemPrice" class="form-label">Item Price</label>
                         <input type="text" class="form-control" id="itemPrice" name="price" value="{{ old('price', $item->price) }}">
+                        @error('price')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                         @enderror
                     </div>
                     <div class="col">
                         <label for="itemCategory" class="form-label d-block">Item Category</label>
@@ -27,15 +32,30 @@
                                 <option value="second" selected>second</option>
                             @endif
                         </select>
+                            @error('category')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                 </div>
                 <div class="mb-3">
                     <label for="itemName" class="form-label">Item Name</label>
                     <input type="text" class="form-control" id="itemName" name="name" value="{{ old('name', $item->name) }}">
+                    @error('name')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                 @enderror
                 </div>
                 <div class="mb-3">
                     <label for="itemDescription" class="form-label">Item Description</label>
                     <textarea class="form-control" id="itemDescription" rows="4" name="description">{{ old('description', $item->description) }}</textarea>
+                    @error('description')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                 @enderror
                 </div>
                 <div class="row mb-3">
                     <div class="col">
@@ -50,6 +70,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="formFile" class="form-label">New Image</label>
+                    <input type="hidden" name="oldImage" value="{{ $item->image }}">
                     <input class="form-control" type="file" id="formFile" name="image">
                   </div>
                   <div class="d-flex justify-content-end">
