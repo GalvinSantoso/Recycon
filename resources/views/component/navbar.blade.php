@@ -14,7 +14,7 @@
                         <a class="nav-link text-light fw-semibold" href="/showProduct">Show Product</a>
                     </li>
                     <li class="nav-item"></li>
-                        <a class="nav-link text-light fw-semibold" href="#">My Cart</a>
+                        <a class="nav-link text-light fw-semibold" href="/cartList">My Cart</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-light fw-semibold" href="#">Transaction History</a>
@@ -30,7 +30,7 @@
                         Profile
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Username</a></li>
+                        <li><a class="dropdown-item" href="#">{{ Auth::user()->name }}</a></li>
                         <li><a class="dropdown-item" href="/editProfile">Edit Profile</a></li>
                         <li><a class="dropdown-item" href="/changePassword">Change Password</a></li>
                     </ul>
@@ -79,7 +79,7 @@
                             Profile
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Username</a></li>
+                            <li><a class="dropdown-item" href="#">{{ Auth::user()->name }}</a></li>
                             <li><a class="dropdown-item" href="/editProfile">Edit Profile</a></li>
                             <li><a class="dropdown-item" href="/changePassword">Change Password</a></li>
                         </ul>

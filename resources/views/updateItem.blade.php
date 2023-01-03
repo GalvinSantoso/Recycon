@@ -28,9 +28,12 @@
                         <select name="category" id="itemCategory" class="border-1 rounded px-3 py-1 text-muted fw-semibold">
                             @if ($item->category == 'recycle')
                                 <option value="recycle" selected>recycle</option>
+                                <option value="second">second</option>
                             @else
+                                <option value="recycle" >recycle</option>
                                 <option value="second" selected>second</option>
                             @endif
+
                         </select>
                             @error('category')
                             <div class="invalid-feedback">
@@ -72,6 +75,11 @@
                     <label for="formFile" class="form-label">New Image</label>
                     <input type="hidden" name="oldImage" value="{{ $item->image }}">
                     <input class="form-control" type="file" id="formFile" name="image">
+                    @error('image')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                 @enderror
                   </div>
                   <div class="d-flex justify-content-end">
                       <button type="submit" class="btn btn-warning">Update</button>
