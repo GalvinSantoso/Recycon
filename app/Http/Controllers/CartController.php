@@ -33,6 +33,25 @@ class CartController extends Controller
             'item_id' => $request->item_id,
         ]);
 
-        return redirect('/cartList');
+        return redirect('/showProduct');
+    }
+
+    public function deleteCart(Cart $cart){
+        Cart::destroy($cart->id);
+        return redirect('/cartList')->with('success', 'cart has been deleted!');
+    }
+    public function updateCart(Cart $cart){
+        return view('updateCart',[
+            'cart' => $cart
+        ]);
+    }
+    public function update(Request $request){
+        $validatedData = $request->validate([
+            'quantity' => 'required|integer|min:1'
+        ]);
+
+        Cart::where('id', $request->id)->update($validatedData);
+
+        return redirect('/cartList')->with('success', 'cart has been updated!');
     }
 }

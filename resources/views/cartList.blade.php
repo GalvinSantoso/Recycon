@@ -6,6 +6,13 @@
     <div class="bg-fdf8f8 p-3">
         <div class="row justify-content-center p-2">
             <h1 class="text-gradients display-3 fw-semibold text-center">My Cart</h1>
+            @if(session()->has('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                </button>
+            </div>
+            @endif
             @if($cartItems->count())
                 <div class="col-lg-10 p-4">
                     <table class="w-100">
@@ -30,9 +37,9 @@
                                 <td>{{ $cartItem->quantity * $cartItem->item[0]->price }}</td>
                                 <td>
                                     <ul class="list-unstyled d-flex align-items-center justify-content-center">
-                                        <li class="mx-2"><a href="/updateItem/{{ $cartItem->item[0]->id }}" class="btn btn-warning">Update</a></li>
+                                        <li class="mx-2"><a href="/updateCart/{{ $cartItem->id }}" class="btn btn-warning">Update</a></li>
                                         <li class="mx-2">
-                                            <form action="/deleteItem/{{ $cartItem->item[0]->id  }}" method="POST">
+                                            <form action="/deleteCart/{{ $cartItem->id  }}" method="POST">
                                                 @method('delete')
                                                 @csrf
                                                 <button type="submit" class="btn btn-danger">Delete</button>
@@ -60,9 +67,9 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="receiverName" class="form-label">Receiver Address</label>
-                                <input type="receiverName" class="form-control @error('receiverName') is-invalid @enderror" id="receiverName" name="receiverName" value="{{ old('receiverName') }}" required>
-                                @error('receiverName')
+                                <label for="receiverAddress" class="form-label">Receiver Address</label>
+                                <textarea class="form-control" id="receiverAddress" rows="4" name="receiverAddress"></textarea>
+                                @error('receiverAddress')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>

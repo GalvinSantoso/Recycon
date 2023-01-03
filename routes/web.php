@@ -51,3 +51,6 @@ Route::put('/changePassword', [UpdatePasswordController::class, 'update']);
 
 Route::get('/cartList', [CartController::class, 'index']);
 Route::post('/cartList', [CartController::class, 'addToCart']);
+Route::delete('/deleteCart/{cart}', [CartController::class, 'deleteCart']);
+Route::get('/updateCart/{cart}', [CartController::class, 'updateCart']);
+Route::put('/updateCart/{id}', [CartController::class, 'update']);
