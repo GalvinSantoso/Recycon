@@ -20,4 +20,7 @@ class Item extends Model
     public function cart(){
         return $this->belongsToMany(Cart::class);
     }
+    public function transaction(){
+        return $this->belongsToMany(Transaction::class);
+    }
 }

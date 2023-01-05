@@ -17,7 +17,7 @@
                         <a class="nav-link text-light fw-semibold" href="/cartList">My Cart</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light fw-semibold" href="#">Transaction History</a>
+                        <a class="nav-link text-light fw-semibold" href="/transactionHistory">Transaction History</a>
                     </li>
                 </ul>
                 <form class="d-flex flex-fill mx-md-2" role="search" action="/showProduct">

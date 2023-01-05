@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UpdatePasswordController;
 use App\Http\Controllers\UpdateProfileController;
 use Illuminate\Support\Facades\Auth;
@@ -54,3 +55,5 @@ Route::post('/cartList', [CartController::class, 'addToCart']);
 Route::delete('/deleteCart/{cart}', [CartController::class, 'deleteCart']);
 Route::get('/updateCart/{cart}', [CartController::class, 'updateCart']);
 Route::put('/updateCart/{id}', [CartController::class, 'update']);
+Route::post('/transactionHistory', [TransactionController::class, 'checkOut']);
+Route::get('/transactionHistory',[TransactionController::class, 'index']);

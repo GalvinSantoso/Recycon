@@ -56,10 +56,12 @@
                     </div>
                     <div>
                         <h3 class="text-gradients display-5 fw-semibold">Receiver</h3>
-                        <form action="">
+                        <form action="/transactionHistory" method="POST">
+                            @csrf
+                            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                             <div class="mb-3">
                                 <label for="receiverName" class="form-label">Receiver Name</label>
-                                <input type="receiverName" class="form-control @error('receiverName') is-invalid @enderror" id="receiverName" name="receiverName" value="{{ old('receiverName') }}" required>
+                                <input type="receiverName" class="form-control @error('receiverName') is-invalid @enderror" id="receiverName" name="receiverName" value="{{ old('receiverName', Auth::user()->name ) }}" required>
                                 @error('receiverName')
                                     <div class="invalid-feedback">
                                         {{ $message }}

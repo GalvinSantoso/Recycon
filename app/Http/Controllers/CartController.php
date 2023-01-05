@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\CartItem;
+use App\Models\Transaction;
+use App\Models\TransactionItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -54,4 +56,6 @@ class CartController extends Controller
 
         return redirect('/cartList')->with('success', 'cart has been updated!');
     }
+
+
 }

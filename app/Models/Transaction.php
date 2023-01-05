@@ -5,19 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Cart extends Model
+class Transaction extends Model
 {
     use HasFactory;
-    protected $guarded =[];
-
+    protected $guarded = [];
     public function user(){
         return $this->belongsTo(User::class);
     }
-
     public function item(){
         return $this->belongsToMany(Item::class);
     }
-
-
-
 }
