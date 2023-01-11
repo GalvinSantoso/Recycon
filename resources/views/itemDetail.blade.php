@@ -32,12 +32,12 @@
                                 <input type="hidden" id="item_id" name="item_id" value="{{ $item->id }}" >
                                 <div class="mx-3">
                                     <label for="quantity">Qty:</label>
-                                    <input type="number" name="quantity" id="quantity" value="1">
+                                    <input type="number" name="quantity" class="@error('quantity') is-invalid @enderror" id="quantity" value="1">
                                     @error('quantity')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
-                                @enderror
+                                    @enderror
                                 </div>
                                 <button type="submit" class="btn-gradients mx-3">Add To Cart</button>
                             </form>

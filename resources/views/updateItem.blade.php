@@ -74,7 +74,7 @@
                 <div class="mb-3">
                     <label for="formFile" class="form-label">New Image</label>
                     <input type="hidden" name="oldImage" value="{{ $item->image }}">
-                    <input class="form-control" type="file" id="formFile" name="image">
+                    <input class="form-control @error('image') is-invalid @enderror" type="file" id="formFile" name="image">
                     @error('image')
                     <div class="invalid-feedback">
                         {{ $message }}

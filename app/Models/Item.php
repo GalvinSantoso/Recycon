@@ -13,7 +13,6 @@ class Item extends Model
     public function scopeSearch($query){
         if(request('search')){
             return $query->where('name', 'like', '%' . request('search') . '%');
-
         }
     }
 

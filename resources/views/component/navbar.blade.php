@@ -8,7 +8,7 @@
             <div class="collapse navbar-collapse d-flex" id="navbarSupportedContent">
                 <ul class="navbar-nav mb-2 mb-lg-0 mx-md-2">
                     <li class="nav-item">
-                        <a class="nav-link text-light fw-bold active" aria-current="page" href="/">Home</a>
+                        <a class="nav-link text-light fw-bold" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-light fw-semibold" href="/showProduct">Show Product</a>
@@ -30,7 +30,7 @@
                         Profile
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">{{ Auth::user()->name }}</a></li>
+                        <li><a class="dropdown-item" href="/">{{ Auth::user()->name }}</a></li>
                         <li><a class="dropdown-item" href="/editProfile">Edit Profile</a></li>
                         <li><a class="dropdown-item" href="/changePassword">Change Password</a></li>
                     </ul>
@@ -69,9 +69,9 @@
                     </ul>
                 </li>
                 </ul>
-                <form class="d-flex flex-fill mx-md-2" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search product.." aria-label="Search">
-                <button class="btn btn-outline-light" type="submit">Search</button>
+                <form class="d-flex flex-fill mx-md-2" role="search" action="/showProduct">
+                    <input class="form-control me-2" type="search" placeholder="Search product.." aria-label="Search" name="search" value="{{ request('search') }}">
+                    <button class="btn btn-outline-light" type="submit">Search</button>
                 </form>
                 <ul class="navbar-nav mx-md-2 mb-2 mb-lg-0">
                     <li class="nav-item dropdown">
@@ -79,7 +79,7 @@
                             Profile
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">{{ Auth::user()->name }}</a></li>
+                            <li><a class="dropdown-item" href="/">{{ Auth::user()->name }}</a></li>
                             <li><a class="dropdown-item" href="/editProfile">Edit Profile</a></li>
                             <li><a class="dropdown-item" href="/changePassword">Change Password</a></li>
                         </ul>
